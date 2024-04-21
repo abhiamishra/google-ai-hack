@@ -4,6 +4,17 @@ from firebase_admin import credentials
 from firebase_admin import db
 from firebase_admin import firestore
 
+import os
+from dotenv import load_dotenv
+
+# Load .env file
+load_dotenv()
+import google.generativeai as genai
+
+from gemini import GenModel
+
+model = GenModel()
+
 app = FastAPI()
 
 creds = credentials.Certificate("./borderless-asmr-firebase-adminsdk.json")
@@ -22,3 +33,9 @@ print(data)
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
+
+@app.get("/gemini")
+async def callgemini():
+    output = model.generate_base_checklist()
+    return output
+    
