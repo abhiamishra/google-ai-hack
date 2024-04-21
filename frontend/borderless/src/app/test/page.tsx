@@ -1,5 +1,4 @@
 'use client'
-import Image from "next/image";
 import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
@@ -13,16 +12,29 @@ const retrievePosts = async () => {
   return response.data;
 };
 
+const retrieveEndpoint = async () => {
+  const response = await axios.get(
+    "http://localhost:8000"
+  );
+  console.log(response.data)
+  return response.data
+};
 export default function Home() {
-  const { data:posts, error, isLoading } = useQuery("postsData", retrievePosts)
+  // const { data:posts, error, isLoading } = useQuery("postsData", retrievePosts)
+
+  // if (isLoading) return <div>Fetching posts...</div>;
+  // if (error) return <div>An error occurred: {error.message}</div>;
+  const { data:endpointData, error, isLoading } = useQuery("Endpoint1", retrieveEndpoint)
 
   if (isLoading) return <div>Fetching posts...</div>;
-  // if (error) return <div>An error occurred: {error.message}</div>;
+  if (error) return <div>An error occurred: {error.message}</div>;
 
 
 
   return (
     <>
+    <h1>{endpointData.message}</h1>
+    <h1>{endpointData["message"]}</h1>
       <h1> test </h1>
       <TextInput />
       <button
