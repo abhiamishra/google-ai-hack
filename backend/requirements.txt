@@ -1,1 +1,4 @@
-fastapi==0.110.1
+fastapi==0.110.2
+firebase_admin==6.5.0
+protobuf==5.26.1
+python-dotenv==1.0.1
