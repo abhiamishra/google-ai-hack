@@ -169,7 +169,6 @@ export default function useBecomeVendor() {
                   <label htmlFor="fullName" className="sr-only">
                     Start Date
                   </label>
-                  <span>{JSON.stringify(controlledDate)}</span>
                 <Controller
                   control={control}
                   name="startDate"
