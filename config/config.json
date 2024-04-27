@@ -1,0 +1,37 @@
+{
+  "site": {
+    "title": "Borderless",
+    "base_url": "/",
+    "favicon": "/images/bless-4.png",
+    "logo": "/images/bless-2.png",
+    "logo_width": "150",
+    "logo_height": "150",
+    "logo_text": "Borderless"
+  },
+
+  "settings": {
+    "pagination": 4,
+    "summary_length": 200,
+    "blog_folder": "blogs"
+  },
+
+
+  "nav_button": {
+    "enable": true,
+    "label": "Get Started",
+    "link": "/chat"
+  },
+
+  "params": {
+    "contact_form_action": "",
+    "tag_manager_id": "",
+    "footer_content": "Lorem ipsum dolor sit amet, consectetur elit. Consjat tristique eget amet, tempus eu at cttur.",
+    "copyright": "Designed and Developed By [Themefisher](https://themefisher.com/)"
+  },
+
+  "metadata": {
+    "meta_author": "Themefisher",
+    "meta_image": "",
+    "meta_description": "A SAAS template for nextjs"
+  }
+}
