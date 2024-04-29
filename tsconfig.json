@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@layouts/*": ["layouts/*"],
+      "@components/*": ["layouts/components/*"],
+      "@partials/*": ["layouts/partials/*"],
+      "@shortcodes/*": ["layouts/shortcodes/*"],
+      "@config/*": ["config/*"],
+      "@json/*": ["json/*"],
+      "@hooks/*": ["hooks/*"],
+      "@lib/*": ["lib/*"]
+      // Define other aliases here if you need them
+      // "@/anotherAlias/*": ["path/to/another/dir/*"]
+    },
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
