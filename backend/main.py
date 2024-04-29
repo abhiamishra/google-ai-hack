@@ -18,6 +18,17 @@ from gemini import GenModel
 
 model = GenModel()
 
+import os
+from dotenv import load_dotenv
+
+# Load .env file
+load_dotenv()
+import google.generativeai as genai
+
+from gemini import GenModel
+
+model = GenModel()
+
 app = FastAPI()
 
 
