@@ -74,6 +74,9 @@ export default function Checklist() {
   
   //hide files: 'hidden'
   console.log("API DATA: ", API_data)
+  //task type
+    // subtask type
+  
 
   return (
     <>
