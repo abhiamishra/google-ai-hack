@@ -5,24 +5,25 @@ import { Disclosure } from '@headlessui/react'
 import { ChevronUpIcon } from '@heroicons/react/20/solid'
 import React from 'react'
 import Accordion from './components/Accordion'
+import { clsx } from 'clsx'
+import twMerge from 'tailwind-merge'
+import Test from "@layouts/Test"
+
 
 export default function Checklist() {
   const [open, setOpen] = useState(true)
-  const items = [
-    { id: 1 },
-    { id: 1 },
-    { id: 1 },
-    { id: 1 },
-    { id: 1 },
-    // More items...
-  ]
+
+  const [formComplete, setFormComplete] = useState(false)
+  const [API_data, setAPI_data] = useState()
+
   const [accordions, setAccordion] = useState([ 
     { 
         key: 1, 
         title: 'What is GeeksforGeeks?', 
         data: `GeeksforGeeks is a one stop solution  
                   for all computer science students.`, 
-        isOpen: false
+        isOpen: false,
+        list: ['apple', 'sick']
     }, 
     { 
         key: 2, 
@@ -32,7 +33,8 @@ export default function Checklist() {
                   Classroom Courses,Frequent Coding Competitions,  
                   Webinars by Industry Experts, Internship  
                   opportunities and Job Opportunities.`, 
-        isOpen: false
+        isOpen: false,
+        list: ['a', 'b', 'c']
     }, 
     { 
         key: 3, 
@@ -41,7 +43,8 @@ export default function Checklist() {
                   for geeks. It contains well written, well thought  
                   and well explained computer science and programming  
                   articles.`, 
-        isOpen: false
+        isOpen: false,
+        list: ['Abhi smells like lavendar', 'Mike smells like peaches', 'Ryan smells like whiskey']
     }, 
 ]); 
 
@@ -68,72 +71,34 @@ export default function Checklist() {
 }; 
 
   // how to handle data
-    //
- 
+  
+  //hide files: 'hidden'
+  console.log("API DATA: ", API_data)
 
   return (
     <>
     <div className='flex flex-row justify-center items-center'>
       <h1>Checklist</h1>
     </div>
-    <div className="p-2 m-8"> 
-                <h2 className='text-2xl mb-2 mx-auto text-green-800'>Accordion Using React and Tailwind</h2> 
-                {accordions.map((accordion) => ( 
-                    <Accordion 
-                        key={accordion.key} 
-                        title={accordion.title} 
-                        data={accordion.data} 
-                        isOpen={accordion.isOpen} 
-                        toggleAccordion={() => toggleAccordion(accordion.key)} 
-                    /> 
-                ))} 
+    <div className={clsx(formComplete === true && "hidden")}> 
+
+    <Test setFormComplete={setFormComplete} setAPI_data={setAPI_data}/>
+    </div>
+    <div className={clsx(formComplete === false && "hidden", "p-2 m-8")}> 
+      <h2 className='text-2xl mb-2 mx-auto text-green-800'>Accordion Using React and Tailwind</h2> 
+      {accordions.map((accordion) => ( 
+          <Accordion 
+              key={accordion.key} 
+              title={accordion.title} 
+              data={accordion.data} 
+              isOpen={accordion.isOpen} 
+              toggleAccordion={() => toggleAccordion(accordion.key)}
+              list={accordion.list}
+          /> 
+      ))} 
     </div> 
     
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
-        <div className="fixed inset-0" />
 
-        <div className="fixed inset-0 overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-              <Transition.Child
-                as={Fragment}
-                enter="transform transition ease-in-out duration-500 sm:duration-700"
-                enterFrom="translate-x-full"
-                enterTo="translate-x-0"
-                leave="transform transition ease-in-out duration-500 sm:duration-700"
-                leaveFrom="translate-x-0"
-                leaveTo="translate-x-full"
-                >
-                <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
-                  <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
-                    <div className="px-4 sm:px-6">
-                      <div className="flex items-start justify-between">
-                        <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">
-                          Panel title
-                        </Dialog.Title>
-                        <div className="ml-3 flex h-7 items-center">
-                          <button
-                            type="button"
-                            className="relative rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                            onClick={() => setOpen(false)}
-                            >
-                            <span className="absolute -inset-2.5" />
-                            <span className="sr-only">Close panel</span>
-                            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="relative mt-6 flex-1 px-4 sm:px-6">{/* Your content */}</div>
-                  </div>
-                </Dialog.Panel>
-              </Transition.Child>
-            </div>
-          </div>
-        </div>
-      </Dialog>
-    </Transition.Root>
   </>
   )
 }
