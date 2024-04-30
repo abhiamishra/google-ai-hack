@@ -27,8 +27,8 @@ export default function Test({setFormComplete, setAPI_data}) {
       },
       body: JSON.stringify(data),
     })
-      .then((res) => {
-        // console.log("Response received", res);
+      .then((res: Response) => {
+        console.log("Response received", res);
         if (res.status === 200) {
           // console.log("Response succeeded!");
           toast("Thank you for contacting us!");
@@ -36,7 +36,10 @@ export default function Test({setFormComplete, setAPI_data}) {
           // console.log("Email/Password is invalid.");
           toast("Email/Password is invalid.");
         }
-        setAPI_data(res.json())
+        return res.json()
+
+      }).then((JSON_data) => {
+        setAPI_data(JSON_data.data)
         setFormComplete(true)
       })
       .catch((e) => console.log("error: ", e));
