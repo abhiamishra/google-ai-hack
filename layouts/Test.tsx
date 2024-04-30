@@ -1,14 +1,23 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 import { Controller, useForm } from "react-hook-form";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import { DatePicker, DatePickerProps } from "antd";
-
+import { hourglass } from 'ldrs';
 
 export default function Test({setFormComplete, setAPI_data}) {
+  useEffect(() => {
+    async function getLoader() {
+      const { hourglass } = await import('ldrs')
+      hourglass.register()
+    }
+    getLoader()
+  }, [])
+
+  const [isLoading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -19,6 +28,7 @@ export default function Test({setFormComplete, setAPI_data}) {
   } = useForm();
   const onSubmit = (data: any) => {
     // console.log(data)
+    setLoading(true);
     fetch("/api/gemini/route", {
       method: "POST",
       headers: {
@@ -44,6 +54,7 @@ export default function Test({setFormComplete, setAPI_data}) {
       })
       .catch((e) => console.log("error: ", e));
       reset()
+      setLoading(false);
   };
 
   return (
@@ -199,6 +210,14 @@ export default function Test({setFormComplete, setAPI_data}) {
                   </button>
                 </div>
               </form>
+              {isLoading && 
+                <l-hourglass
+                  size="40"
+                  bg-opacity="0.1"
+                  speed="1.75"
+                  color="black" 
+                ></l-hourglass>
+              }
             </div>
           </div>
         </div>
