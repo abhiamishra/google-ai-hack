@@ -8,6 +8,7 @@ import Accordion from './components/Accordion'
 import { clsx } from 'clsx'
 import twMerge from 'tailwind-merge'
 import Test from "@layouts/Test"
+import Column from './components/Columns'
 
 
 export default function Checklist() {
@@ -59,15 +60,15 @@ export default function Checklist() {
 
 
   const toggleAccordion = (accordionkey) => { 
-    const updatedAccordions = accordions.map((accord) => { 
-        if (accord.key === accordionkey) { 
+    const updatedAccordions = API_data.map((accord) => { 
+        if (accord.Task === accordionkey) { 
             return { ...accord, isOpen: !accord.isOpen }; 
         } else { 
             return { ...accord, isOpen: false }; 
         } 
     }); 
 
-    setAccordion(updatedAccordions); 
+    setAPI_data(updatedAccordions); 
 }; 
 
   // how to handle data
@@ -89,14 +90,15 @@ export default function Checklist() {
     </div>
     <div className={clsx(formComplete === false && "hidden", "p-2 m-8")}> 
       <h2 className='text-2xl mb-2 mx-auto text-green-800'>Accordion Using React and Tailwind</h2> 
-      {accordions.map((accordion) => ( 
+      {API_data && API_data.map((Task) => ( 
           <Accordion 
-              key={accordion.key} 
-              title={accordion.title} 
-              data={accordion.data} 
-              isOpen={accordion.isOpen} 
-              toggleAccordion={() => toggleAccordion(accordion.key)}
-              list={accordion.list}
+              key={Task.Task} 
+              title={Task.Task} 
+              data={Task.Description} 
+              isOpen={Task.isOpen} 
+              toggleAccordion={() => toggleAccordion(Task.Task)}
+              priority={Task.Priority}
+              subTasks={Task.Subtasks}
           /> 
       ))} 
     </div> 

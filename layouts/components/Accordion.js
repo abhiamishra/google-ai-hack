@@ -2,8 +2,11 @@
 
 export default function Accordion(props) { 
 
-    var arr = props.list
+    var arr = props.subTasks
     console.log(arr)
+
+	var priority = props.priority
+	console.log("priority: ", priority)
 	return ( 
 		<div className="border rounded-md mb-1"> 
 			<button 
@@ -12,6 +15,8 @@ export default function Accordion(props) {
 				onClick={props.toggleAccordion} 
 			> 
 				{props.title} 
+				<br/>
+				Priority: {props.priority}
 				<span className={`float-right transform ${props.isOpen ? 
 								'rotate-180' : 'rotate-0'} 
 								transition-transform duration-300`}> 
@@ -21,6 +26,20 @@ export default function Accordion(props) {
 			{props.isOpen && ( 
 				<div className="p-4 bg-white"> 
 					{props.data} 
+					{props.subTasks.map( (Task) => (
+						<>
+							<br/>
+							<br/>
+							<div className="bg-gray-300 text-red-200">
+								{Task.Task}
+								<br/>
+								{Task.Priority}
+								<br/>
+								{Task.Description}
+							</div>
+
+						</>
+					))}
 				</div> 
 			)} 
 		</div> 
