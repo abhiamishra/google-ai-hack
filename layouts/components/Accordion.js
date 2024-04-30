@@ -1,6 +1,9 @@
 // Accordion.js 
 
 export default function Accordion(props) { 
+
+    var arr = props.list
+    console.log(arr)
 	return ( 
 		<div className="border rounded-md mb-1"> 
 			<button 
