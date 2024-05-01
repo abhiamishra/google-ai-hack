@@ -1,14 +1,22 @@
 import { useQuery } from "react-query";
 import axios from "axios";
 import { Controller, useForm } from "react-hook-form";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 import { DatePicker, DatePickerProps } from "antd";
+import { tailspin } from 'ldrs'
 
+export default function ChecklistForm({setFormComplete, setAPI_data}) {
+  useEffect(() => {
+    async function getLoader() {
+      const { spiral } = await import('ldrs')
+      spiral.register()
+    }
+    getLoader()
+  }, [])
 
-export default function Test({setFormComplete, setAPI_data}) {
   const {
     register,
     handleSubmit,
@@ -56,18 +64,22 @@ export default function Test({setFormComplete, setAPI_data}) {
           <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
             <div className="max-w-lg mx-auto">
               <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-                Become a Vendor!
+                Tell us about yourself!
               </h2>
               <p className="mt-3 text-lg leading-6 text-gray-500">
-                In order to be eligable for Vendor status, we must approve of you first.
+                We're excited to have the opportunity to curate your personal checklist on steps you need to do achieve your dreams.
               </p>
               <div className="mt-8 text-base text-gray-500">
                     <p className="pb-3">Send us an application:</p>
                     <div className="pl-4">
 
-                    <p>- Fill out your name</p>
-                    <p>- Fill out your Email</p>
-                    <p>- Fill in a Description of yourself and what you would like to sell</p>
+                    <p>- Are you currently enrolled?</p>
+                    <p>- What school do you wish to attend</p>
+                    <p>- What is your desired major?</p>
+                    <p>- What degree level are you pursuing?</p>
+                    <p>- When do you start?</p>
+                    <p>- Enrollment Alternative?</p>
+                    <p>- What is your current english level?</p>
 
                 </div>
               </div>
@@ -197,6 +209,8 @@ export default function Test({setFormComplete, setAPI_data}) {
                   >
                     Submit
                   </button>
+
+                  <l-spiral color="coral"></l-spiral>
                 </div>
               </form>
             </div>
