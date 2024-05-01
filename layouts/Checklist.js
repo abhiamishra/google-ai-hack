@@ -14,6 +14,8 @@ import Column from './components/Columns'
 export default function Checklist() {
   const [open, setOpen] = useState(true)
 
+  const [fullyLoaded, setFullyLoaded] = useState(false)
+
   const [formComplete, setFormComplete] = useState(false)
   const [API_data, setAPI_data] = useState()
 
@@ -51,10 +53,9 @@ export default function Checklist() {
     <div className='flex flex-row justify-center items-center'>
       <h1>Checklist</h1>
     </div>
-    <div className={clsx(formComplete === true && "hidden")}> 
+    
+    <ChecklistForm formComplete={formComplete} setFormComplete={setFormComplete} setAPI_data={setAPI_data} setFullyLoaded={setFullyLoaded}/>
 
-    <ChecklistForm setFormComplete={setFormComplete} setAPI_data={setAPI_data}/>
-    </div>
     <div className={clsx(formComplete === false && "hidden", "p-2 m-8")}> 
       <h2 className='text-2xl mb-2 mx-auto text-green-800'>Accordion Using React and Tailwind</h2> 
       {API_data && API_data.map((Task) => ( 
