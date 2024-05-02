@@ -57,7 +57,7 @@ export default function Checklist() {
     <ChecklistForm formComplete={formComplete} setFormComplete={setFormComplete} setAPI_data={setAPI_data} setFullyLoaded={setFullyLoaded}/>
 
     <div className={clsx(formComplete === false && "hidden", "p-2 m-8")}> 
-      <h2 className='text-2xl mb-2 mx-auto text-green-800'>Accordion Using React and Tailwind</h2> 
+      <h2 className='text-2xl mb-2 mx-auto text-green-800'>Borderless' Recommendations</h2> 
       {API_data && API_data.map((Task) => ( 
           <Accordion 
               key={Task.Task} 

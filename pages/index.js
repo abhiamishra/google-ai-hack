@@ -21,7 +21,7 @@ const Home = ({ frontmatter }) => {
           <div className="row text-center">
             <div className="mx-auto lg:col-10">
               <h1 className="font-primary font-bold">{banner.title}</h1>
-              <p className="mt-4">{markdownify(banner.content)}</p>
+              <h4 className="mt-4">{markdownify(banner.content)}</h4>
               {banner.button.enable && (
                 <Link
                   className="btn btn-primary mt-4"
@@ -52,7 +52,8 @@ const Home = ({ frontmatter }) => {
             "h2",
             "mx-auto max-w-[400px] font-bold leading-[44px]"
           )}
-          {markdownify(workflow.description, "p", "mt-3")}
+          {markdownify(workflow.description, "p", "mx-auto text-3xl mt-9")}
+          {markdownify(workflow.d2, "p", "mx-auto text-3xl mt-9")}
         </div>
         <Image
           src={workflow.image}
@@ -78,8 +79,8 @@ const Home = ({ frontmatter }) => {
                   <Image
                     className="mx-auto"
                     src={item.icon}
-                    width={30}
-                    height={30}
+                    width={250}
+                    height={250}
                     alt=""
                   />
                 )}

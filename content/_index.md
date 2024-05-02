@@ -1,7 +1,7 @@
 ---
 banner:
   title: "Welcome to Borderless"
-  content: "Where you can find easy access to information on the process of immigrating to any country you want without any of the hassle, stress, time, and extra money spent on your expense."
+  content: "Immigrate to any country at the touch of your fingertips with Borderless."
   image: "/images/banner-art.png"
   button:
     label: "Contact Us"
@@ -9,35 +9,33 @@ banner:
 
 # feature
 feature: 
-  title: "Have You Ever Had Trouble Getting Any Of These Items?"
+  title: "What type of visa are you looking for?"
   features:
-  - name: "Valid Passport"
-    icon: "/images/passport.jpg"
-    content: "A valid passport from the applicant's home country is typically required. This document serves as proof of identity and nationality."
-  - name: "Visa"
+  - name: "F1 Visa (USA)"
+    icon: "/images/visa_image.jpg"
+    content: "This is the most common type of student visa for international students who want to pursue academic studies at an accredited college or university in the United States."
+  - name: "M1 Visa (USA)"
     icon: "/images/visa.jpg"
-    content: "Depending on the purpose of immigration, individuals may need different types of visas. For example, immigrant visas are for those planning to live permanently in the U.S., while nonimmigrant visas are for temporary stays such as tourism, work, or study. Each type of visa has its own application process and requirements."
-  - name: "Immigration Forms and Documentation"
-    icon: "/images/document.png"
-    content: "Various immigration forms and supporting documentation are required depending on the visa category and immigration pathway."
-  - name: "Medical Examination and Vaccination Records"
-    icon: "/images/love.svg"
-    content: "Some visa categories require applicants to undergo a medical examination by an authorized physician to ensure they meet health requirements. Vaccination records may also be required to show proof of immunization against certain diseases."
-  - name: "Financial Support and Sponsorship"
-    icon: "/images/money.jpg"
-    content: "For certain visa categories, applicants may need to demonstrate that they have sufficient financial resources to support themselves and their dependents while living in the United States. Additionally, sponsors may be required to provide financial support and sign affidavits of support to guarantee the immigrant will not become a public charge."
-  - name: "Background Checks and Police Certificates"
-    icon: "/images/background-check.png"
-    content: "Applicants are typically required to undergo background checks to ensure they do not have a criminal history or pose a security risk. This may involve providing police clearance certificates or other documentation from countries where the applicant has lived."
+    content: "This visa is for students who want to pursue non-academic or vocational studies, such as cosmetology or culinary arts."
+  - name: "J-1 Visa (Exchange Visitor Visa)"
+    icon: "/images/j1.png"
+    content: "This visa is for students participating in exchange programs sponsored by the U.S. government or other organizations. J-1 visas can be used for academic studies, internships, or research."
+  - name: "Tier 4 Visa (United Kingdom)"
+    icon: "/images/tier.jpg"
+    content: "This visa is for students who want to pursue a full-time degree program at a higher education institution in the UK."
+  - name: "Student Visa (Australia)"
+    icon: "/images/aus.jpg"
+    content: "This visa is for students who want to pursue a full-time registered course in Australia."
+  - name: "Student Pass (Singapore)"
+    icon: "/images/singapore.jpg"
+    content: "This visa is for students who want to pursue full-time studies at a registered institution in Singapore."
 
 # services
 services:
-  - title: "Step 1: Go to our Check List Page"
-    content: "Here is where you will have your personalized checklist for getting documentation or tasks accomplished for your specific immigration process. But first you got to answer some questions to get this checklist."
+  - title: "Step 1: Register and Make an Account"
+    content: "Get started with our services by making an account and registering."
     images:
-      - "/images/service-slide-1.png"
-      - "/images/service-slide-2.png"
-      - "/images/service-slide-3.png"
+      - "/images/account1.jpg"
     button:
       enable: true
       label: Check it out
@@ -46,47 +44,47 @@ services:
   - title: "Step 2: Answer Checklist Questionaire"
     content: "Your answers to these questions will be used to filter down all the miscellaneous content that does not apply so that anything in your personal immigration checklist is the most efficient and minimal possible."
     images: 
-      - "/images/service-slide-1.png"
+      - "/images/checklist.png"
     button:
       enable: true
       label: Check it out
       link: /contact
   
   - title: "Step 3: Get Generated Step By Step Checklist"
-    content: "After answering the questionaire, a checklist tailored to your personal immigration needs will be generated and given to you for you to keep track of so that your immigration process cuts out all the unneccessary stress, time, and money. But just in case you need any additional help outside of this checklist, Borderless has you covered on that too."
+    content: "After answering the questionaire, a checklist tailored to your personal immigration needs will be generated and given to you for you to keep track of so that your immigration process cuts out all the unneccessary stress, time, and money."
     images:
-      - "/images/service-slide-1.png"
-      - "/images/service-slide-2.png"
-      - "/images/service-slide-3.png"
+      - "/images/visa_image.jpg"
+      - "/images/background-check.png"
     button:
       enable: true
       label: Check it out
       link: /contact
 
-  - title: "Step 4: Use Chat Bot For Any Additional Help"
-    content: "If you need any additional help about your personal immigration process, we have a chat bot dedicated to helping you with any questions you have."
-    images:
-      - "/images/service-slide-1.png"
-      - "/images/service-slide-2.png"
-      - "/images/service-slide-3.png"
-    button:
-      enable: true
-      label: Check it out
-      link: /contact
+  # - title: "Step 4: Use Chat Bot For Any Additional Help"
+  #   content: "If you need any additional help about your personal immigration process, we have a chat bot dedicated to helping you with any questions you have."
+  #   images:
+  #     - "/images/service-slide-1.png"
+  #     - "/images/service-slide-2.png"
+  #     - "/images/service-slide-3.png"
+  #   button:
+  #     enable: true
+  #     label: Check it out
+  #     link: /contact
 
 # workflow
 workflow: 
-  title: "If so, then Borderless is here to help"
+  title: "Imagine your dreams, borderless."
   image: "/images/banner.svg"
-  description: "Borderless will be able to help you (with the assistance of Google's AI Gemini) with understanding and accomplishing every step of the immigration process for your specific needs by following these steps"
+  description: "Dreams, ambitions, and education all share one thing in common: no borders."
+  d2: "At Borderless, we aim to help international students immigrate to any country for their borderless dreams."
 
 # call_to_action
 call_to_action:
   title: Ready to get started?
-  content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consequat tristique eget amet, tempus eu at consecttur.
+  content: 
   image: '/images/cta.svg'
   button:
     enable: true
-    label: "Contact Us"
+    label: "Get Started"
     link: "/contact"
 ---

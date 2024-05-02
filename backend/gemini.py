@@ -53,14 +53,11 @@ class GenModel:
           self,
           isEnroll,
           school,
-          city,
-          state,
           major,
           degreeLevel,
           startDate,
           isenrollAlt,
           nameAlt,
-          altDate,
           isfullTime,
           englishLevel,
           isTOEFL,
@@ -79,7 +76,7 @@ class GenModel:
         if isEnroll:
            univStatement += "The student will be going to " + school + " in " + str(startDate) + " pursuing " + major + " at a " + degreeLevel + " level.\n"
         else:
-           altStatement += "The name of the other/alternative academic program is " + nameAlt + " and will begin the program on " + str(altDate) + ".\n"
+           altStatement += "The name of the other/alternative academic program is " + nameAlt + ".\n"
           
         isFullTimeStatement = f"The student is {'not ' if not isfullTime else ''} a full-time student.\n"
 

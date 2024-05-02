@@ -46,10 +46,10 @@ export default function ChecklistForm({formComplete, setFormComplete, setAPI_dat
         console.log("Response received", res);
         if (res.status === 200) {
           // console.log("Response succeeded!");
-          toast("Thank you for contacting us!");
+          toast("Here's your checklist!");
         } else {
           // console.log("Email/Password is invalid.");
-          toast("Email/Password is invalid.");
+          toast("Invalid form/Error in processing");
         }
         return res.json()
 
@@ -70,7 +70,7 @@ export default function ChecklistForm({formComplete, setFormComplete, setAPI_dat
             <div className="absolute inset-y-0 left-0 w-1/2 bg-gray-50" />
           </div>
           <div className="h-full relative max-w-7xl mx-auto lg:grid lg:grid-cols-5">
-            <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
+            {/* <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
               <div className="max-w-lg mx-auto">
                 <h2 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
                   Tell us about yourself!
@@ -80,18 +80,17 @@ export default function ChecklistForm({formComplete, setFormComplete, setAPI_dat
                 </p>
                 <div className="mt-8 text-base text-gray-500">
                       <p className="pb-3">Send us an application:</p>
-                      <div className="pl-4">
-
-                      <p>- Are you currently enrolled?</p>
-                      <p>- What school do you wish to attend</p>
-                      <p>- What is your desired major?</p>
-                      <p>- What degree level are you pursuing?</p>
-                      <p>- When do you start?</p>
-                      <p>- Enrollment Alternative?</p>
-                      <p>- What is your current english level?</p>
-
-                  </div>
                 </div>
+              </div>
+            </div> */}
+            <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:col-span-2 lg:px-8 lg:py-24 xl:pr-12">
+              <div className="max-w-lg mx-auto">
+                <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">
+                  Tell us about yourself!
+                </h2>
+                <p className="mt-3 text-xl leading-6 text-gray-500">
+                  We're excited to have the opportunity to curate your personal checklist on steps you need to do achieve your dreams.
+                </p>
               </div>
             </div>
             <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
@@ -101,8 +100,27 @@ export default function ChecklistForm({formComplete, setFormComplete, setAPI_dat
                   method="POST"
                   className="grid grid-cols-1 gap-y-6"
                 >
+                  <h4>1. Visa Type</h4>
                   <div>
-                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Is Enroll</h1>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">What type of visa are you looking for?</h1>
+                    <label htmlFor="fullName" className="sr-only">
+                      
+                    </label>
+                    <input
+                      type="text"
+                      id=""
+                      autoComplete="name"
+                      className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      placeholder="F1 Visa"
+                    />
+                  </div>
+                  <br></br>
+
+                  
+                  <h4>2. Study Programs</h4>
+                  <h5>Section 1: Post-Secondary Education Plans</h5>
+                  <div>
+                    <p className="text-xl text-black font-bold pb-2 pl-1 ">Do you plan to enroll in a university or college in the United States? (Yes/No) </p>
                     <label htmlFor="isEnroll" className="sr-only">
                       Is Enroll
                     </label>
@@ -113,12 +131,15 @@ export default function ChecklistForm({formComplete, setFormComplete, setAPI_dat
                       className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
                       placeholder="John Doe"
 
-                      {...register("isEnroll", { required: true })}
+                      {...register("isEnroll", { required: false })}
                     />
                   </div>
+
+                  <br></br>
+                  <h5>If yes, please provide the following information: </h5>
   
                   <div>
-                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">school</h1>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Name of the university/college</h1>
                     <label htmlFor="fullName" className="sr-only">
                       School
                     </label>
@@ -127,45 +148,46 @@ export default function ChecklistForm({formComplete, setFormComplete, setAPI_dat
                       id="school"
                       autoComplete="name"
                       className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                      placeholder="John Doe"
+                      placeholder="Harvard"
 
-                      {...register("school", { required: true })}
+                      {...register("school", { required: false })}
                     />
                   </div>
+
                   <div>
-                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">major</h1>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Program/Major you intend to study</h1>
                     <label htmlFor="fullName" className="sr-only">
                       Major
                     </label>
                     <input
                       type="text"
-                      id="Major"
+                      id="major"
                       autoComplete="name"
                       className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                      placeholder="John Doe"
+                      placeholder="CS"
 
-                      {...register("major", { required: true })}
+                      {...register("major", { required: false })}
                     />
                   </div>
                   <div>
-                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">degree level</h1>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Degree level (e.g., Bachelor's, Master's, PhD)</h1>
                     <label htmlFor="fullName" className="sr-only">
-                      degree level
+                      degreeLevel
                     </label>
                     <input
                       type="text"
                       id="degreeLevel"
                       autoComplete="name"
                       className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                      placeholder="John Doe"
+                      placeholder="Bachelor"
 
-                      {...register("degreeLevel", { required: true })}
+                      {...register("degreeLevel", { required: false })}
                     />
                   </div>
                   <div>
                     <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Start Date</h1>
                     <label htmlFor="fullName" className="sr-only">
-                      Start Date
+                      startDate
                     </label>
                   <Controller
                     control={control}
@@ -181,10 +203,13 @@ export default function ChecklistForm({formComplete, setFormComplete, setAPI_dat
                       );
                     }}/>
                   </div>
+                   <br></br>
+
+                  <h5>Section 2: Alternative Academic Programs</h5>
                   <div>
-                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Is Enroll Alt</h1>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">If you are not planning to attend a university/college, are you considering any other academic programs in the United States? (Yes/No)</h1>
                     <label htmlFor="fullName" className="sr-only">
-                      Is Enroll Alt
+                      isEnrollAlt
                     </label>
                     <input
                       type="checkbox"
@@ -196,21 +221,204 @@ export default function ChecklistForm({formComplete, setFormComplete, setAPI_dat
                       {...register("isEnrollAlt", { required: false })}
                     />
                   </div>
+                  
+                  <br></br>
+                  <h5>If yes, please specify the type of program: </h5>
+
                   <div>
-                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">english level</h1>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Name of the alternate program</h1>
                     <label htmlFor="fullName" className="sr-only">
-                      english level
+                      nameAlt
+                    </label>
+                    <input
+                      type="text"
+                      id="nameAlt"
+                      autoComplete="name"
+                      className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      placeholder="Data Science Certification Program"
+
+                      {...register("nameAlt")}
+                    />
+                  </div>
+
+                  <br></br>
+
+                  <h4>3. Full-Time Enrollment</h4>
+                  <div>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Will you be enrolled as a full-time student in your chosen program? (Yes/No)</h1>
+                    <label htmlFor="fullName" className="sr-only">
+                      isfullTime
+                    </label>
+                    <input
+                      type="checkbox"
+                      id="isfullTime"
+                      autoComplete="name"
+                      className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      placeholder="John Doe"
+
+                      {...register("isfullTime", { required: false })}
+                    />
+                  </div>
+                  <br></br>
+
+
+                  <h4>4. English Proficiency</h4>
+                  <h5>Section 1: Self-Assessment of English Proficiency</h5>
+                  <div>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">How would you rate your current level of English proficiency?</h1>
+                    <ul>
+                      <li>Options: Beginner, Intermediate, Advanced, Native/Fluent</li>
+                    </ul>
+                    <label htmlFor="fullName" className="sr-only">
+                      englishLevel
                     </label>
                     <input
                       type="text"
                       id="englishLevel"
                       autoComplete="name"
                       className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
-                      placeholder="John Doe"
+                      placeholder="Beginner"
 
-                      {...register("englishLevel", { required: true })}
+                      {...register("englishLevel", { required: false })}
                     />
                   </div>
+                  <br></br>
+
+                  <div>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Have you previously taken any standardized English language tests (e.g., TOEFL, IELTS)? (Yes/No)</h1>
+                    <label htmlFor="fullName" className="sr-only">
+                      isTOEFL
+                    </label>
+                    <input
+                      type="checkbox"
+                      id="isTOEFL"
+                      autoComplete="name"
+                      className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      placeholder="John Doe"
+
+                      {...register("isTOEFL", { required: false })}
+                    />
+                  </div>
+                  <br></br>
+                  <div>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">If yes, please specify the score(s).</h1>
+                    <label htmlFor="fullName" className="sr-only">
+                      TOEFLScore
+                    </label>
+                    <input
+                      type="text"
+                      id="TOEFLScore"
+                      autoComplete="name"
+                      className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      placeholder="400"
+
+                      {...register("TOEFLScore")}
+                    />
+                  </div>
+                  <br></br>
+                  <h5>Section 2: English Language Course Plans</h5>
+                  <div>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Does your chosen academic program require you to take any English language courses? (Yes/No)</h1>
+                    <label htmlFor="fullName" className="sr-only">
+                      isEnrollEnglishCourse
+                    </label>
+                    <input
+                      type="checkbox"
+                      id="isEnrollEnglishCourse"
+                      autoComplete="name"
+                      className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      placeholder="John Doe"
+
+                      {...register("isEnrollEnglishCourse", { required: false })}
+                    />
+                  </div>
+                  <br></br>
+                  <h4>5. Ties to Home Country</h4>
+                  <h5>Section 1: Residence and Family</h5>
+                  <div>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Do you own or rent a residence in your home country? (Yes/No)</h1>
+                    <label htmlFor="fullName" className="sr-only">
+                      isResidence
+                    </label>
+                    <input
+                      type="checkbox"
+                      id="isResidence"
+                      autoComplete="name"
+                      className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      placeholder="John Doe"
+
+                      {...register("isResidence", { required: false })}
+                    />
+                  </div>
+                  <br></br>
+                  <div>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Do you have immediate family members (e.g., spouse, children, parents) residing in your home country? (Yes/No)</h1>
+                    <label htmlFor="fullName" className="sr-only">
+                      isFamily
+                    </label>
+                    <input
+                      type="checkbox"
+                      id="isFamily"
+                      autoComplete="name"
+                      className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      placeholder="John Doe"
+
+                      {...register("isFamily", { required: false })}
+                    />
+                  </div>
+                  <br></br>
+                  <h5>Section 2: Employment and Assets</h5>
+                  <div>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Are you currently employed in your home country? (Yes/No)</h1>
+                    <label htmlFor="fullName" className="sr-only">
+                      isEmployed
+                    </label>
+                    <input
+                      type="checkbox"
+                      id="isEmployed"
+                      autoComplete="name"
+                      className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      placeholder="John Doe"
+
+                      {...register("isEmployed", { required: false })}
+                    />
+                  </div>
+                  <br></br>
+                  <div>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">Do you have any significant assets (e.g., property, investments) in your home country? (Yes/No)</h1>
+                    <label htmlFor="fullName" className="sr-only">
+                    hasAssets
+                    </label>
+                    <input
+                      type="checkbox"
+                      id="hasAssets"
+                      autoComplete="name"
+                      className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      placeholder="John Doe"
+
+                      {...register("hasAssets", { required: false })}
+                    />
+                  </div>
+                  <br></br>
+                  <h5>Section 3: Future Plans</h5>
+                  <div>
+                    <h1 className="text-xl text-black font-bold pb-2 pl-1 ">After completing your studies in the United States, do you plan to return to your home country? (Yes/No)</h1>
+                    <label htmlFor="fullName" className="sr-only">
+                    isReturn
+                    </label>
+                    <input
+                      type="checkbox"
+                      id="isReturn"
+                      autoComplete="name"
+                      className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+                      placeholder="John Doe"
+
+                      {...register("isReturn", { required: false })}
+                    />
+                  </div>
+
+
+
                   <div>
                     <button
                       type="submit"
@@ -220,7 +428,7 @@ export default function ChecklistForm({formComplete, setFormComplete, setAPI_dat
                     </button>
 
                   
-                  </div>
+                  </div>                 
                 </form>
               </div>
             </div>

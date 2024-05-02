@@ -13,7 +13,7 @@ const Contact = ({ data }) => {
     <section className="section">
       <div className="container">
         {markdownify(title, "h1", "text-center font-normal")}
-        <div className="section d-flex justify-content-center align-items-center">
+        <div className="contact-form d-flex justify-content-center">
           <div className="col-12 md:col-6 lg:col-3 text-center">
             <form
               className="contact-form"
