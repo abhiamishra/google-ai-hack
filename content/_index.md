@@ -1,7 +1,7 @@
 ---
 banner:
-  title: "Welcome to Borderless"
-  content: "Immigrate to any country at the touch of your fingertips with Borderless."
+  title: "Borderless"
+  content: "Let's make education borderless."
   image: "/images/banner-art.png"
   button:
     label: "Contact Us"
@@ -41,7 +41,7 @@ services:
       label: Check it out
       link: /contact
 
-  - title: "Step 2: Answer Checklist Questionaire"
+  - title: "Step 2: Answer Checklist Questionnaire"
     content: "Your answers to these questions will be used to filter down all the miscellaneous content that does not apply so that anything in your personal immigration checklist is the most efficient and minimal possible."
     images: 
       - "/images/checklist.png"
@@ -76,7 +76,7 @@ workflow:
   title: "Imagine your dreams, borderless."
   image: "/images/banner.svg"
   description: "Dreams, ambitions, and education all share one thing in common: no borders."
-  d2: "At Borderless, we aim to help international students immigrate to any country for their borderless dreams."
+  d2: "At Borderless, we aim to help international students immigrate to achieve their borderless dreams."
 
 # call_to_action
 call_to_action:
